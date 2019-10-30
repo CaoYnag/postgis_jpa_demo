@@ -1,0 +1,30 @@
+server:
+  port: 9999
+  context-path: /
+  tomcat:
+    uri-encoding: UTF-8
+debug: false
+spring:
+  datasource:
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+  jpa:
+    show-sql: false
+    format-sql: true
+    hibernate:
+      naming:
+        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.spatial.dialect.postgis.PostgisDialect
+        enable_lazy_load_no_trans: true
+    open-in-view: true
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
